@@ -98,16 +98,16 @@ void setLevel(int level) {
 }
 
 Score** startGame(int localPlayers, int remotePlayers, bool localFirst) {
-  Score** scores = malloc(sizeof(Score*) * localPlayers);
+  Score** scores = malloc(sizeof(Score*) * localPlayers);//점수 담을 메모리 할당
   for (int i = 0; i < localPlayers; i++) {
-    scores[i] = createScore();
+    scores[i] = createScore(); // 플레이어 수 만큼 점수를 담을 변수 생성
   }
   int status;
   stage = 0;
   do {
-    initGame(localPlayers, remotePlayers, localFirst);
-    setLevel(gameLevel);
-    status = gameLoop();
+    initGame(localPlayers, remotePlayers, localFirst);//Go to line of 472
+    setLevel(gameLevel);//무기,포션,함정 발동 시간 등등 조정
+    status = gameLoop();//게임 진행 루프
     for (int i = 0; i < localPlayers; i++)
       addScore(scores[i], spriteSnake[i]->score);
     destroyGame(status);
@@ -160,12 +160,12 @@ void appendSpriteToSnake(
   if (snake->buffs[BUFF_DEFFENCE])
     shieldSprite(sprite, snake->buffs[BUFF_DEFFENCE]);
 }
-void initPlayer(int playerType) {
+void initPlayer(int playerType) {//플레이어 정보 초기화
   spritesCount++;
   Snake* p = spriteSnake[playersCount] =
-      createSnake(MOVE_STEP, playersCount, playerType);
+      createSnake(MOVE_STEP, playersCount, playerType);//플레이어 리모트 라인 생성
   appendSpriteToSnake(p, SPRITE_KNIGHT, SCREEN_WIDTH / 2,
-                      SCREEN_HEIGHT / 2 + playersCount * 2 * UNIT, RIGHT);
+                      SCREEN_HEIGHT / 2 + playersCount * 2 * UNIT, RIGHT);//리모트 라인에 히어로 넣기
   playersCount++;
 }
 void generateHeroItem(int x, int y) {
@@ -1086,8 +1086,8 @@ int gameLoop() {
   // Game loop
   for (bool quit = 0; !quit;) {
     quit = handleLocalKeypress();
-    if (quit) sendGameOverPacket(3);
-    if (lanClientSocket != NULL) handleLanKeypress();
+    if (quit) sendGameOverPacket(3);// 플레이어 게임 종료시
+    if (lanClientSocket != NULL) handleLanKeypress(); 
 
     updateMap();
 

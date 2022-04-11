@@ -63,15 +63,15 @@ bool moveCursor(int optsNum) {
   cursorPos %= optsNum;
   return quit;
 }
-int chooseOptions(int optionsNum, Text** options) {
+int chooseOptions(int optionsNum, Text** options) {//메인 메뉴 기능 및 애니메이션
   cursorPos = 0;
-  Snake* player = createSnake(2, 0, LOCAL);
-  appendSpriteToSnake(player, SPRITE_KNIGHT, SCREEN_WIDTH / 2,
-                      SCREEN_HEIGHT / 2, UP);
-  int lineGap = FONT_SIZE + FONT_SIZE / 2,
-      totalHeight = lineGap * (optionsNum - 1);
-  int startY = (SCREEN_HEIGHT - totalHeight) / 2;
-  while (!moveCursor(optionsNum)) {
+  Snake* player = createSnake(2, 0, LOCAL);// 플레이어 라인 만들기
+  appendSpriteToSnake(player, SPRITE_ELF, SCREEN_WIDTH / 2,
+                      SCREEN_HEIGHT / 2, UP);//메뉴 선택에 쓰일 애니메이션 생성
+  int lineGap = FONT_SIZE + FONT_SIZE / 2, // ??
+      totalHeight = lineGap * (optionsNum - 1);//??
+  int startY = (SCREEN_HEIGHT - totalHeight) / 2;//??
+  while (!moveCursor(optionsNum)) {//메뉴 선택 기능 및 애니메이션
     Sprite* sprite = player->sprites->head->element;
     sprite->ani->at = AT_CENTER;
     sprite->x = SCREEN_WIDTH / 2 - options[cursorPos]->width / 2 - UNIT / 2;
@@ -97,8 +97,8 @@ void baseUi(int w, int h) {
 }
 bool chooseLevelUi() {
   baseUi(30, 12);
-  int optsNum = 3;
-  Text** opts = malloc(sizeof(Text*) * optsNum);
+  int optsNum = 3; //??
+  Text** opts = malloc(sizeof(Text*) * optsNum); //
   for (int i = 0; i < optsNum; i++) opts[i] = texts + i + 10;
   int opt = chooseOptions(optsNum, opts);
   if (opt != optsNum) setLevel(opt);
@@ -107,8 +107,8 @@ bool chooseLevelUi() {
 }
 
 void launchLocalGame(int localPlayerNum) {
-  Score** scores = startGame(localPlayerNum, 0, true);
-  rankListUi(localPlayerNum, scores);
+  Score** scores = startGame(localPlayerNum, 0, true);//게임 시작 및 점수 담기
+  rankListUi(localPlayerNum, scores);//UI 호출 및 랭크 리스트로 업데이트
   for (int i = 0; i < localPlayerNum; i++) updateLocalRanklist(scores[i]);
   destroyRanklist(localPlayerNum, scores);
 }
@@ -206,19 +206,19 @@ int chooseOnLanUi() {
   return opt;
 }
 
-void mainUi() {
+void mainUi() {// main 화면에 표시되는  UI 및 캐릭터 애니메이션 생성
   baseUi(30, 12);
   playBgm(0);
   int startY = SCREEN_HEIGHT / 2 - 70;
   int startX = SCREEN_WIDTH / 5 + 32;
-  createAndPushAnimation(&animationsList[RENDER_LIST_UI_ID],
+  createAndPushAnimation(&animationsList[RENDER_LIST_UI_ID],//타이틀 텍스트 애니메이션 생성 , 푸시
                          &textures[RES_TITLE], NULL, LOOP_INFI, 80,
                          SCREEN_WIDTH / 2, 280, SDL_FLIP_NONE, 0, AT_CENTER);
-  createAndPushAnimation(&animationsList[RENDER_LIST_SPRITE_ID],
-                         &textures[RES_KNIGHT_M], NULL, LOOP_INFI,
+  createAndPushAnimation(&animationsList[RENDER_LIST_SPRITE_ID], // 기사 애니메이션 생성 추가
+                         &textures[RES_WIZZARD_M], NULL, LOOP_INFI,
                          SPRITE_ANIMATION_DURATION, startX, startY,
                          SDL_FLIP_NONE, 0, AT_BOTTOM_CENTER);
-  createAndPushAnimation(
+  createAndPushAnimation(//검 공격 애니메이션 생성 및 푸시
       &animationsList[RENDER_LIST_EFFECT_ID], &textures[RES_SwordFx], NULL,
       LOOP_INFI, SPRITE_ANIMATION_DURATION, startX + UI_MAIN_GAP_ALT * 2,
       startY - 32, SDL_FLIP_NONE, 0, AT_BOTTOM_CENTER)
@@ -286,6 +286,9 @@ void mainUi() {
                          &textures[RES_SWAMPY], NULL, LOOP_INFI,
                          SPRITE_ANIMATION_DURATION, startX + UI_MAIN_GAP,
                          startY, SDL_FLIP_HORIZONTAL, 0, AT_BOTTOM_CENTER);
+// MAIN UI ANIMATIONS END
+
+
   /*
    startX = SCREEN_WIDTH/3*2;
    startY = SCREEN_HEIGHT/3 + 10;
@@ -307,6 +310,8 @@ void mainUi() {
    AT_BOTTOM_CENTER);
    }
    */
+
+  //
   int optsNum = 4;
   Text** opts = malloc(sizeof(Text*) * optsNum);
   for (int i = 0; i < optsNum; i++) opts[i] = texts + i + 6;
@@ -319,18 +324,18 @@ void mainUi() {
   switch (opt) {
     case 0:
       if (!chooseLevelUi()) break;
-      launchLocalGame(1);
+      launchLocalGame(1);//싱글 플레이
       break;
-    case 1:
+    case 1: // 멀티 플레이
       lan = chooseOnLanUi();
       if (lan == 0) {
         if (!chooseLevelUi()) break;
-        launchLocalGame(2);
+        launchLocalGame(2); 
       } else if (lan == 1) {
         launchLanGame();
       }
       break;
-    case 2:
+    case 2:// 랭크 리스트
       localRankListUi();
       break;
     case 3:

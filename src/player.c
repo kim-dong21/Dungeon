@@ -15,6 +15,6 @@ void initSnake(Snake* snake, int step, int team, PlayerType playerType) {
 
 Snake* createSnake(int step, int team, PlayerType playerType) {
   Snake* self = malloc(sizeof(Snake));
-  initSnake(self, step, team, playerType);
+  initSnake(self, step, team, playerType);//구조체 Snake* self에 할당된 메모리가 initSnake로 넘어감
   return self;
 }

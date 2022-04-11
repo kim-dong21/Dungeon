@@ -4,8 +4,6 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/Users/kimdongju/Dungeonrush/src/**",
-                "/usr/local/Cellar/sdl/1.2.15_3/include/SDL/**",
                 "/usr/local/Cellar/sdl2/2.0.20/include/SDL2/**",
                 "/usr/local/Cellar/sdl2_image/2.0.5/include/SDL2/**",
                 "/usr/local/Cellar/sdl2_mixer/2.0.4_3/include/SDL2/**",

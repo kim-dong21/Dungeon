@@ -76,6 +76,10 @@
 #define RES_BIG_DEMON 134
 #define RES_ELF_F 136
 #define RES_ELF_M 139
+
+//드루이드 추가
+#define RES_EXPERT_DRUID 140
+
 #define RES_KNIGHT_M 145
 #define RES_WIZZARD_M 151
 #define RES_LIZARD_M 157
@@ -147,6 +151,9 @@
 #define SPRITE_BIG_ZOMBIE 18
 #define SPRITE_ORGRE 19
 #define SPRITE_BIG_DEMON 20
+
+//드루이드
+#define SPRITE_EXPERT_DRUID 21
 
 // Audio
 #define AUDIO_BGM_SIZE (1<<4)

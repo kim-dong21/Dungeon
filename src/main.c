@@ -6,6 +6,7 @@
 #include "game.h"
 #include "ui.h"
 #include "prng.h"
+#define DBG
 
 #ifdef DBG
 #include <assert.h>
@@ -21,7 +22,7 @@ int main(int argc, char** args) {
     if (!loadMedia()) {
       printf("Failed to load media!\n");
     } else {
-      mainUi();
+      mainUi();//메인 화면
     }
   }
   cleanup();

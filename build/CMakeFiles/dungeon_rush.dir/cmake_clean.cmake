@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/dungeon_rush.dir/src/ai.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/ai.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/audio.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/audio.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/bullet.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/bullet.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/game.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/game.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/helper.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/helper.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/main.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/main.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/map.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/map.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/net.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/net.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/player.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/player.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/prng.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/prng.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/render.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/render.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/res.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/res.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/sprite.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/sprite.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/storage.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/storage.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/types.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/types.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/ui.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/ui.c.o.d"
+  "CMakeFiles/dungeon_rush.dir/src/weapon.c.o"
+  "CMakeFiles/dungeon_rush.dir/src/weapon.c.o.d"
+  "bin/dungeon_rush"
+  "bin/dungeon_rush.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/dungeon_rush.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

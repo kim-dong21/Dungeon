@@ -52,7 +52,10 @@ const char tilesetPath[TILESET_SIZE][PATH_LEN] = {
     "res/drawable/staff",
     "res/drawable/Thunder_Yellow",
     "res/drawable/attack_up",
-    "res/drawable/powerful_bow"};
+    "res/drawable/powerful_bow",
+    //드루이드 추가
+    "res/drawable/expert_druid"
+};
 const char fontPath[] = "res/font/m5x7.ttf";
 const char textsetPath[] = "res/text.txt";
 
@@ -172,6 +175,8 @@ SDL_Texture* loadSDLTexture(const char* path) {
 
   return newTexture;
 }
+
+
 bool loadTextset() {
   bool success = true;
   FILE* file = fopen(textsetPath, "r");
@@ -189,7 +194,7 @@ bool loadTextset() {
   }
   fclose(file);
   return success;
-}
+}              
 bool loadTileset(const char* path, SDL_Texture* origin) {
   FILE* file = fopen(path, "r");
   int x, y, w, h, f;
@@ -211,6 +216,7 @@ bool loadTileset(const char* path, SDL_Texture* origin) {
   fclose(file);
   return true;
 }
+
 bool loadAudio() {
   bool success = true;
   for (int i = 0; i < bgmNums; i++) {
@@ -246,6 +252,7 @@ bool loadMedia() {
   for (int i = 0; i < TILESET_SIZE; i++) {
     if (!strlen(tilesetPath[i])) break;
     sprintf(imgPath, "%s.png", tilesetPath[i]);
+    printf("%s",imgPath);
     originTextures[i] = loadSDLTexture(imgPath);
     loadTileset(tilesetPath[i], originTextures[i]);
     success &= (bool)originTextures[i];
@@ -354,6 +361,9 @@ void initCommonSprites() {
   initCommonSprite(&commonSprites[SPRITE_NECROMANCER], &weapons[WEAPON_PURPLE_BALL], RES_NECROMANCER, 120);
   initCommonSprite(&commonSprites[SPRITE_WOGOL], &weapons[WEAPON_MONSTER_CLAW2], RES_WOGOL, 150);
   initCommonSprite(&commonSprites[SPRITE_CHROT], &weapons[WEAPON_MONSTER_CLAW2], RES_CHORT, 150);
+  //드루이드 스프라이트 코드 추가
+  initCommonSprite(&commonSprites[SPRITE_EXPERT_DRUID],&weapons[WEAPON_PURPLE_BALL],RES_EXPERT_DRUID,100);
+  //
   Sprite* now;
   initCommonSprite(now=&commonSprites[SPRITE_BIG_ZOMBIE], &weapons[WEAPON_THUNDER], RES_BIG_ZOMBIE, 3000);
   now->dropRate = 100;

@@ -91,7 +91,7 @@ void destroyEffect(Effect* self) {
     free(self);
   }
 }
-
+//에니메이션 초기화
 void initAnimation(Animation* self, Texture* origin, const Effect* effect,
                    LoopType lp, int duration, int x, int y,
                    SDL_RendererFlip flip, double angle, At at) {
@@ -120,7 +120,7 @@ Animation* createAnimation(Texture* origin, const Effect* effect, LoopType lp,
                            int duration, int x, int y, SDL_RendererFlip flip,
                            double angle, At at) {
   Animation* self = malloc(sizeof(Animation));
-  initAnimation(self, origin, effect, lp, duration, x, y, flip, angle, at);
+  initAnimation(self, origin, effect, lp, duration, x, y, flip, angle, at);//애니메이션 할당
   return self;
 }
 void destroyAnimation(Animation* self) {
