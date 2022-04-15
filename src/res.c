@@ -53,8 +53,12 @@ const char tilesetPath[TILESET_SIZE][PATH_LEN] = {
     "res/drawable/Thunder_Yellow",
     "res/drawable/attack_up",
     "res/drawable/powerful_bow",
+    
     //드루이드 추가
     "res/drawable/expert_druid"
+    
+    //Warm 추가
+    //"res/drawable/Warm_m"
 };
 const char fontPath[] = "res/font/m5x7.ttf";
 const char textsetPath[] = "res/text.txt";
@@ -195,10 +199,11 @@ bool loadTextset() {
   fclose(file);
   return success;
 }              
+//                 타일셋 주소              로드 된 텍스쳐
 bool loadTileset(const char* path, SDL_Texture* origin) {
-  FILE* file = fopen(path, "r");
-  int x, y, w, h, f;
-  char resName[256];
+  FILE* file = fopen(path, "r");//이미지의 프레임 정보가 담긴 텍스트 파일을 FILE* file 변수 안에 로드
+  int x, y, w, h, f;//x 왼->오, y 위->아래 , w 폭 , h 높이 , f 프레임
+  char resName[256];//나눠진 애니메이션의 이름을 담는 변수
   while (fscanf(file, "%s %d %d %d %d %d", resName, &x, &y, &w, &h, &f) == 6) {
     Texture* p = &textures[texturesCount++];
     initTexture(p, origin, w, h, f);
@@ -254,6 +259,7 @@ bool loadMedia() {
     sprintf(imgPath, "%s.png", tilesetPath[i]);
     printf("%s",imgPath);
     originTextures[i] = loadSDLTexture(imgPath);
+    //tilesetPath 파일 경로 , originTextures Texture 파일
     loadTileset(tilesetPath[i], originTextures[i]);
     success &= (bool)originTextures[i];
   }
@@ -298,6 +304,7 @@ void cleanup() {
   SDLNet_Quit();
   SDL_Quit();
 }
+
 void initCommonEffects() {
   // Effect #0: Death
   initEffect(&effects[0], 30, 4, SDL_BLENDMODE_BLEND);
@@ -361,9 +368,9 @@ void initCommonSprites() {
   initCommonSprite(&commonSprites[SPRITE_NECROMANCER], &weapons[WEAPON_PURPLE_BALL], RES_NECROMANCER, 120);
   initCommonSprite(&commonSprites[SPRITE_WOGOL], &weapons[WEAPON_MONSTER_CLAW2], RES_WOGOL, 150);
   initCommonSprite(&commonSprites[SPRITE_CHROT], &weapons[WEAPON_MONSTER_CLAW2], RES_CHORT, 150);
-  //드루이드 스프라이트 코드 추가
+  //드루이드
   initCommonSprite(&commonSprites[SPRITE_EXPERT_DRUID],&weapons[WEAPON_PURPLE_BALL],RES_EXPERT_DRUID,100);
-  //
+
   Sprite* now;
   initCommonSprite(now=&commonSprites[SPRITE_BIG_ZOMBIE], &weapons[WEAPON_THUNDER], RES_BIG_ZOMBIE, 3000);
   now->dropRate = 100;

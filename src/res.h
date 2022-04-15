@@ -77,8 +77,6 @@
 #define RES_ELF_F 136
 #define RES_ELF_M 139
 
-//드루이드 추가
-#define RES_EXPERT_DRUID 140
 
 #define RES_KNIGHT_M 145
 #define RES_WIZZARD_M 151
@@ -124,6 +122,9 @@
 #define RES_THUNDER_YELLOW 202
 #define RES_ATTACK_UP 203
 #define RES_POWERFUL_BOW 204
+//druid
+#define RES_EXPERT_DRUID 205
+
 // Effect
 #define EFFECT_DEATH 0
 #define EFFECT_BLINK 1
@@ -154,6 +155,8 @@
 
 //드루이드
 #define SPRITE_EXPERT_DRUID 21
+//Warm
+#define SPRTIE_WARM_M 22
 
 // Audio
 #define AUDIO_BGM_SIZE (1<<4)

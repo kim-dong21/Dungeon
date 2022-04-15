@@ -6,5 +6,5 @@ C_DEFINES =
 
 C_INCLUDES = -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2
 
-C_FLAGS =  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2
+C_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2
 

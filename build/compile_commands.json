@@ -1,0 +1,87 @@
+[
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/ai.c.o -c /Users/kimdongju/Dungeon/src/ai.c",
+  "file": "/Users/kimdongju/Dungeon/src/ai.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/audio.c.o -c /Users/kimdongju/Dungeon/src/audio.c",
+  "file": "/Users/kimdongju/Dungeon/src/audio.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/bullet.c.o -c /Users/kimdongju/Dungeon/src/bullet.c",
+  "file": "/Users/kimdongju/Dungeon/src/bullet.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/game.c.o -c /Users/kimdongju/Dungeon/src/game.c",
+  "file": "/Users/kimdongju/Dungeon/src/game.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/helper.c.o -c /Users/kimdongju/Dungeon/src/helper.c",
+  "file": "/Users/kimdongju/Dungeon/src/helper.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/main.c.o -c /Users/kimdongju/Dungeon/src/main.c",
+  "file": "/Users/kimdongju/Dungeon/src/main.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/map.c.o -c /Users/kimdongju/Dungeon/src/map.c",
+  "file": "/Users/kimdongju/Dungeon/src/map.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/net.c.o -c /Users/kimdongju/Dungeon/src/net.c",
+  "file": "/Users/kimdongju/Dungeon/src/net.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/player.c.o -c /Users/kimdongju/Dungeon/src/player.c",
+  "file": "/Users/kimdongju/Dungeon/src/player.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/prng.c.o -c /Users/kimdongju/Dungeon/src/prng.c",
+  "file": "/Users/kimdongju/Dungeon/src/prng.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/render.c.o -c /Users/kimdongju/Dungeon/src/render.c",
+  "file": "/Users/kimdongju/Dungeon/src/render.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/res.c.o -c /Users/kimdongju/Dungeon/src/res.c",
+  "file": "/Users/kimdongju/Dungeon/src/res.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/sprite.c.o -c /Users/kimdongju/Dungeon/src/sprite.c",
+  "file": "/Users/kimdongju/Dungeon/src/sprite.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/storage.c.o -c /Users/kimdongju/Dungeon/src/storage.c",
+  "file": "/Users/kimdongju/Dungeon/src/storage.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/types.c.o -c /Users/kimdongju/Dungeon/src/types.c",
+  "file": "/Users/kimdongju/Dungeon/src/types.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/ui.c.o -c /Users/kimdongju/Dungeon/src/ui.c",
+  "file": "/Users/kimdongju/Dungeon/src/ui.c"
+},
+{
+  "directory": "/Users/kimdongju/Dungeon/build",
+  "command": "/usr/bin/clang  -I/Users/kimdongju/Dungeon/src -isystem /usr/local/include/SDL2 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -o CMakeFiles/dungeon_rush.dir/src/weapon.c.o -c /Users/kimdongju/Dungeon/src/weapon.c",
+  "file": "/Users/kimdongju/Dungeon/src/weapon.c"
+}
+]

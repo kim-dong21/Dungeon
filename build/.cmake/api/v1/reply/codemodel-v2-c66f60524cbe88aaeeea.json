@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.5.1"
@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "dungeon_rush::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-dungeon_rush-521d5fb7f606e7f87085.json",
+					"jsonFile" : "target-dungeon_rush-Debug-c0c6b7ae2f8f75ad20c1.json",
 					"name" : "dungeon_rush",
 					"projectIndex" : 0
 				}
