@@ -207,6 +207,9 @@ int chooseOnLanUi() {
 }
 
 void mainUi() {// main 화면에 표시되는  UI 및 캐릭터 애니메이션 생성
+#ifdef DBG
+  printf("failed MainUi()");
+#endif
   baseUi(30, 12);
   playBgm(0);
   int startY = SCREEN_HEIGHT / 2 - 70;

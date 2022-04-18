@@ -1109,7 +1109,7 @@ int gameLoop() {
           Sprite* sprite = p->element;
           sprite->ani->currentFrame--;
         }
-    }
+    } 
     makeCross();
     render();
     updateBuffDuration();

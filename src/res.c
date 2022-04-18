@@ -157,6 +157,9 @@ bool init() {
   return success;
 }
 SDL_Texture* loadSDLTexture(const char* path) {
+  #ifdef DBG
+  printf("failed loadSDLTexture()");
+#endif
   // The final texture
   SDL_Texture* newTexture = NULL;
 
@@ -201,6 +204,9 @@ bool loadTextset() {
 }              
 //                 타일셋 주소              로드 된 텍스쳐
 bool loadTileset(const char* path, SDL_Texture* origin) {
+  #ifdef DBG
+  printf("failed loadTileset()");
+#endif
   FILE* file = fopen(path, "r");//이미지의 프레임 정보가 담긴 텍스트 파일을 FILE* file 변수 안에 로드
   int x, y, w, h, f;//x 왼->오, y 위->아래 , w 폭 , h 높이 , f 프레임
   char resName[256];//나눠진 애니메이션의 이름을 담는 변수
@@ -248,6 +254,9 @@ bool loadAudio() {
   return success;
 }
 bool loadMedia() {
+  #ifdef DBG
+    printf("failed loadMedia()");
+  #endif
   // Loading success flag
   bool success = true;
   // load effects
@@ -306,6 +315,9 @@ void cleanup() {
 }
 
 void initCommonEffects() {
+#ifdef DBG
+  printf("failed initCommonEffects()");
+#endif
   // Effect #0: Death
   initEffect(&effects[0], 30, 4, SDL_BLENDMODE_BLEND);
   SDL_Color death = {255, 255, 255, 255};
@@ -342,6 +354,9 @@ void initCommonEffects() {
 #endif
 }
 void initCommonSprite(Sprite* sprite, Weapon* weapon, int res_id, int hp) {
+  #ifdef DBG
+  printf("failed initCommonSprite()");
+#endif
   Animation* ani = createAnimation(&textures[res_id], NULL, LOOP_INFI,
                 SPRITE_ANIMATION_DURATION, 0, 0, SDL_FLIP_NONE, 0,
                 AT_BOTTOM_CENTER);
@@ -368,7 +383,9 @@ void initCommonSprites() {
   initCommonSprite(&commonSprites[SPRITE_NECROMANCER], &weapons[WEAPON_PURPLE_BALL], RES_NECROMANCER, 120);
   initCommonSprite(&commonSprites[SPRITE_WOGOL], &weapons[WEAPON_MONSTER_CLAW2], RES_WOGOL, 150);
   initCommonSprite(&commonSprites[SPRITE_CHROT], &weapons[WEAPON_MONSTER_CLAW2], RES_CHORT, 150);
+  
   //드루이드
+  
   initCommonSprite(&commonSprites[SPRITE_EXPERT_DRUID],&weapons[WEAPON_PURPLE_BALL],RES_EXPERT_DRUID,100);
 
   Sprite* now;

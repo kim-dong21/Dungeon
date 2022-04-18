@@ -18,8 +18,10 @@ extern TTF_Font* font;
 extern SDL_Renderer* renderer;
 SDL_Color BLACK = {0, 0, 0, 255};
 SDL_Color WHITE = {255, 255, 255, 255};
-void initTexture(Texture* self, SDL_Texture* origin, int width, int height,
-                 int frames) {
+void initTexture(Texture* self, SDL_Texture* origin, int width, int height,int frames) {
+#ifdef DBG
+  printf("failed initTexture()");
+#endif
   self->origin = origin;
   self->width = width;
   self->height = height;
@@ -73,6 +75,10 @@ void destroyText(Text* self) {
   free(self);
 }
 void initEffect(Effect* self, int duration, int length, SDL_BlendMode mode) {
+#ifdef DBG
+  printf("failed initEffect()");
+#endif
+
   self->keys = malloc(sizeof(SDL_Color) * length);
   self->duration = duration;
   self->length = length;

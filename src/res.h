@@ -156,7 +156,7 @@
 //드루이드
 #define SPRITE_EXPERT_DRUID 21
 //Warm
-#define SPRTIE_WARM_M 22
+//#define SPRTIE_WARM_M 22
 
 // Audio
 #define AUDIO_BGM_SIZE (1<<4)
