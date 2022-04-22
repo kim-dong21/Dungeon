@@ -6,7 +6,7 @@
 
 #define VERSION_STRING "v1.1(beta)"
 #define PATH_LEN 1024
-#define TILESET_SIZE 1024
+#define TILESET_SIZE 100
 #define TEXTSET_SIZE 1024
 #define TEXTURES_SIZE 1024
 #define EFFECTS_SIZE 128
@@ -122,8 +122,12 @@
 #define RES_THUNDER_YELLOW 202
 #define RES_ATTACK_UP 203
 #define RES_POWERFUL_BOW 204
+
+/*  new heros and monsters  */
 //druid
 #define RES_EXPERT_DRUID 205
+#define RES_BATEYE 206
+#define RES_FIREWALKER 207
 
 // Effect
 #define EFFECT_DEATH 0
@@ -131,30 +135,41 @@
 #define EFFECT_VANISH30 2
 // Sprite
 #define COMMON_SPRITE_SIZE 1024
+//hero sprites
 #define SPRITE_KNIGHT 0
 #define SPRITE_ELF 1
 #define SPRITE_WIZZARD 2
 #define SPRITE_LIZARD 3
-#define SPRITE_TINY_ZOMBIE 4
-#define SPRITE_GOBLIN 5
-#define SPRITE_IMP 6
-#define SPRITE_SKELET 7
-#define SPRITE_MUDDY 8
-#define SPRITE_SWAMPY 9
-#define SPRITE_ZOMBIE 10
-#define SPRITE_ICE_ZOMBIE 11
-#define SPRITE_MASKED_ORC 12
-#define SPRITE_ORC_WARRIOR 13
-#define SPRITE_ORC_SHAMAN 14
-#define SPRITE_NECROMANCER 15
-#define SPRITE_WOGOL 16
-#define SPRITE_CHROT 17
-#define SPRITE_BIG_ZOMBIE 18
-#define SPRITE_ORGRE 19
-#define SPRITE_BIG_DEMON 20
+#define SPRITE_EXPERT_DRUID 4 //druid
 
-//드루이드
-#define SPRITE_EXPERT_DRUID 21
+
+//monster sprites
+#define SPRITE_TINY_ZOMBIE 5
+#define SPRITE_GOBLIN 6
+#define SPRITE_IMP 7
+#define SPRITE_SKELET 8
+
+#define SPRITE_MUDDY 9
+#define SPRITE_SWAMPY 10
+
+#define SPRITE_ZOMBIE 11
+#define SPRITE_ICE_ZOMBIE 12
+
+#define SPRITE_MASKED_ORC 13
+#define SPRITE_ORC_WARRIOR 14
+#define SPRITE_ORC_SHAMAN 15
+#define SPRITE_NECROMANCER 16
+
+#define SPRITE_WOGOL 17
+#define SPRITE_CHROT 18
+#define SPRITE_BATEYE 19 //bateye
+#define SPRITE_FIREWALKER 20 //firewalker
+
+#define SPRITE_BIG_ZOMBIE 25
+#define SPRITE_ORGRE 26
+#define SPRITE_BIG_DEMON 27
+
+
 //Warm
 //#define SPRTIE_WARM_M 22
 

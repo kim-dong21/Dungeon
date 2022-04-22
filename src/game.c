@@ -160,7 +160,7 @@ void appendSpriteToSnake(
   if (snake->buffs[BUFF_DEFFENCE])
     shieldSprite(sprite, snake->buffs[BUFF_DEFFENCE]);
 }
-void initPlayer(int playerType) {//플레이어 정보 초기화
+void initPlayer(int playerType) {//플레이어 초기화
   spritesCount++;
   Snake* p = spriteSnake[playersCount] =
       createSnake(MOVE_STEP, playersCount, playerType);//플레이어 리모트 라인 생성
@@ -169,12 +169,14 @@ void initPlayer(int playerType) {//플레이어 정보 초기화
   playersCount++;
 }
 void generateHeroItem(int x, int y) {
-  int heroId = randInt(SPRITE_KNIGHT, SPRITE_LIZARD);
+  int heroId = randInt(SPRITE_KNIGHT, SPRITE_EXPERT_DRUID);
   Animation* ani = malloc(sizeof(Animation));
   itemMap[x][y] = (Item){ITEM_HERO, heroId, 0, ani};
+  printf("Hero ID : %d \n",heroId);
   copyAnimation(commonSprites[heroId].ani, ani);
   x *= UNIT, y *= UNIT;
   // TODO:Dangerous
+  if(heroId!=SPRITE_EXPERT_DRUID)
   ani->origin--;
   ani->x = x + UNIT / 2, ani->y = y + UNIT - 3;
   ani->at = AT_BOTTOM_CENTER;
@@ -276,8 +278,7 @@ void generateHeroItemAllMap() {
   } while (!hasMap[x][y] || map[x][y].bp != BLOCK_FLOOR ||
            itemMap[x][y].type != ITEM_NONE ||
            !hasMap[x - 1][y] + !hasMap[x + 1][y] + !hasMap[x][y + 1] +
-                   !hasMap[x][y - 1] >=
-               1);
+                   !hasMap[x][y - 1] >=1);
   generateHeroItem(x, y);
 }
 void clearItemMap() {
@@ -369,7 +370,13 @@ void initEnemies(int enemiesCount) {
     } else if (random < 0.5) {
       startId = SPRITE_ZOMBIE;
       endId = SPRITE_ICE_ZOMBIE;
-    } else if (random < 0.8) {
+    }else if(random<0.6){
+      startId=SPRITE_BATEYE;
+      endId=SPRITE_BATEYE;
+    }else if(random<0.7){
+      startId=SPRITE_FIREWALKER;
+      endId=SPRITE_FIREWALKER;
+    }else if (random < 0.8) {
       startId = SPRITE_MUDDY;
       endId = SPRITE_SWAMPY;
     } else {
@@ -770,6 +777,7 @@ bool makeSnakeCross(Snake* snake) {
 
   return die;
 }
+
 bool makeBulletCross(Bullet* bullet) {
   Weapon* weapon = bullet->parent;
   bool hit = false;
@@ -840,6 +848,7 @@ void makeCross() {
     }
   }
 }
+
 void moveSprite(Sprite* sprite, int step) {
   Direction dir = sprite->direction;
   if (dir == LEFT)
@@ -851,6 +860,7 @@ void moveSprite(Sprite* sprite, int step) {
   else if (dir == DOWN)
     sprite->y += step;
 }
+
 void moveSnake(Snake* snake) {
   if (snake->buffs[BUFF_FROZEN]) return;
   int step = snake->moveStep;
@@ -895,6 +905,7 @@ void updateMap() {
       }
     }
 }
+
 void updateBuffDuration() {
   for (int i = 0; i < spritesCount; i++) {
     Snake* snake = spriteSnake[i];

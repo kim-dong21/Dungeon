@@ -6,13 +6,21 @@
 #include "game.h"
 #include "ui.h"
 #include "prng.h"
-#define DBG
+
+#define DBG 1
 
 #ifdef DBG
 #include <assert.h>
 #endif
+extern char tilesetPath[TILESET_SIZE][PATH_LEN];
 
 int main(int argc, char** args) {
+  
+  printf("starting main\n");
+  
+  //strcpy(tilesetPath[34],"res/drawable/expert_druid");
+  
+  
   prngSrand(time(NULL));
   // Start up SDL and create window
   if (!init()) {

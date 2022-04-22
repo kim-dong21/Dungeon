@@ -217,7 +217,7 @@ void mainUi() {// main 화면에 표시되는  UI 및 캐릭터 애니메이션 
   createAndPushAnimation(&animationsList[RENDER_LIST_UI_ID],//타이틀 텍스트 애니메이션 생성 , 푸시
                          &textures[RES_TITLE], NULL, LOOP_INFI, 80,
                          SCREEN_WIDTH / 2, 280, SDL_FLIP_NONE, 0, AT_CENTER);
-  createAndPushAnimation(&animationsList[RENDER_LIST_SPRITE_ID], // 기사 애니메이션 생성 추가
+  createAndPushAnimation(&animationsList[RENDER_LIST_SPRITE_ID], //메인UI 기사 애니메이션 생성 추가
                          &textures[RES_WIZZARD_M], NULL, LOOP_INFI,
                          SPRITE_ANIMATION_DURATION, startX, startY,
                          SDL_FLIP_NONE, 0, AT_BOTTOM_CENTER);
@@ -234,7 +234,7 @@ void mainUi() {// main 화면에 표시되는  UI 및 캐릭터 애니메이션 
   startX += UI_MAIN_GAP_ALT * (6 + 2 * randDouble());
   startY += UI_MAIN_GAP * (1 + randDouble());
   createAndPushAnimation(&animationsList[RENDER_LIST_SPRITE_ID],
-                         &textures[RES_ELF_M], NULL, LOOP_INFI,
+                         &textures[RES_EXPERT_DRUID], NULL, LOOP_INFI,
                          SPRITE_ANIMATION_DURATION, startX, startY,
                          SDL_FLIP_HORIZONTAL, 0, AT_BOTTOM_CENTER);
   createAndPushAnimation(&animationsList[RENDER_LIST_EFFECT_ID],

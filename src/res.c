@@ -17,48 +17,47 @@
 // Constants
 const int n = SCREEN_WIDTH/UNIT;
 const int m = SCREEN_HEIGHT/UNIT;
+int test_count;
 
-const char tilesetPath[TILESET_SIZE][PATH_LEN] = {
-    "res/drawable/0x72_DungeonTilesetII_v1_3",
-    "res/drawable/fireball_explosion1",
-    "res/drawable/halo_explosion1",
-    "res/drawable/halo_explosion2",
-    "res/drawable/fireball",
-    "res/drawable/floor_spike",
-    "res/drawable/floor_exit",
-    "res/drawable/HpMed",
-    "res/drawable/SwordFx",
-    "res/drawable/ClawFx",
-    "res/drawable/Shine",
-    "res/drawable/Thunder",
-    "res/drawable/BloodBound",
-    "res/drawable/arrow",
-    "res/drawable/explosion-2",
-    "res/drawable/ClawFx2",
-    "res/drawable/Axe",
-    "res/drawable/cross_hit",
-    "res/drawable/blood",
-    "res/drawable/SolidFx",
-    "res/drawable/IcePick",
-    "res/drawable/IceShatter",
-    "res/drawable/Ice",
-    "res/drawable/SwordPack",
-    "res/drawable/HolyShield",
-    "res/drawable/golden_cross_hit",
-    "res/drawable/ui",
-    "res/drawable/title",
-    "res/drawable/purple_ball",
-    "res/drawable/purple_exp",
-    "res/drawable/staff",
-    "res/drawable/Thunder_Yellow",
-    "res/drawable/attack_up",
-    "res/drawable/powerful_bow",
-    
-    //드루이드 추가
-    "res/drawable/expert_druid"
-    
-    //Warm 추가
-    //"res/drawable/Warm_m"
+char tilesetPath[TILESET_SIZE][PATH_LEN] = {
+  "res/drawable/0x72_DungeonTilesetII_v1_3",
+  "res/drawable/fireball_explosion1",
+  "res/drawable/halo_explosion1",
+  "res/drawable/halo_explosion2",
+  "res/drawable/fireball",
+  "res/drawable/floor_spike",
+  "res/drawable/floor_exit",
+  "res/drawable/HpMed",
+  "res/drawable/SwordFx",
+  "res/drawable/ClawFx",
+  "res/drawable/Shine",
+  "res/drawable/Thunder",
+  "res/drawable/BloodBound",
+  "res/drawable/arrow",
+  "res/drawable/explosion-2",
+  "res/drawable/ClawFx2",
+  "res/drawable/Axe",
+  "res/drawable/cross_hit",
+  "res/drawable/blood",
+  "res/drawable/SolidFx",
+  "res/drawable/IcePick",
+  "res/drawable/IceShatter",
+  "res/drawable/Ice",
+  "res/drawable/SwordPack",
+  "res/drawable/HolyShield",
+  "res/drawable/golden_cross_hit",
+  "res/drawable/ui",
+  "res/drawable/title",
+  "res/drawable/purple_ball",
+  "res/drawable/purple_exp",
+  "res/drawable/staff",
+  "res/drawable/Thunder_Yellow",
+  "res/drawable/attack_up",
+  "res/drawable/powerful_bow",
+  "res/drawable/expert_druid",
+  "res/drawable/bateye",
+  "res/drawable/firewalker"
+
 };
 const char fontPath[] = "res/font/m5x7.ttf";
 const char textsetPath[] = "res/text.txt";
@@ -73,7 +72,7 @@ const char bgmsPath[AUDIO_BGM_SIZE][PATH_LEN] = {
 const char soundsPath[PATH_LEN] = "res/audio/sounds";
 const char soundsPathPrefix[PATH_LEN] = "res/audio/";
 // Gloabls
-int texturesCount;
+int texturesCount=0;
 Texture textures[TEXTURES_SIZE];
 int textsCount;
 Text texts[TEXTSET_SIZE];
@@ -157,9 +156,8 @@ bool init() {
   return success;
 }
 SDL_Texture* loadSDLTexture(const char* path) {
-  #ifdef DBG
-  printf("failed loadSDLTexture()");
-#endif
+  printf("loadSDLTexture\n");
+
   // The final texture
   SDL_Texture* newTexture = NULL;
 
@@ -204,13 +202,15 @@ bool loadTextset() {
 }              
 //                 타일셋 주소              로드 된 텍스쳐
 bool loadTileset(const char* path, SDL_Texture* origin) {
-  #ifdef DBG
-  printf("failed loadTileset()");
-#endif
+
+  printf("loadTileset() path:%s \n",path);
+
   FILE* file = fopen(path, "r");//이미지의 프레임 정보가 담긴 텍스트 파일을 FILE* file 변수 안에 로드
   int x, y, w, h, f;//x 왼->오, y 위->아래 , w 폭 , h 높이 , f 프레임
   char resName[256];//나눠진 애니메이션의 이름을 담는 변수
+  if(file==NULL) printf("fopen error\n");
   while (fscanf(file, "%s %d %d %d %d %d", resName, &x, &y, &w, &h, &f) == 6) {
+    printf("res_name= %s , texturesCount = %d\n",resName,texturesCount);
     Texture* p = &textures[texturesCount++];
     initTexture(p, origin, w, h, f);
     for (int i = 0; i < f; i++) {
@@ -254,9 +254,8 @@ bool loadAudio() {
   return success;
 }
 bool loadMedia() {
-  #ifdef DBG
-    printf("failed loadMedia()");
-  #endif
+
+  printf("loadMedia()\n");
   // Loading success flag
   bool success = true;
   // load effects
@@ -266,9 +265,10 @@ bool loadMedia() {
   for (int i = 0; i < TILESET_SIZE; i++) {
     if (!strlen(tilesetPath[i])) break;
     sprintf(imgPath, "%s.png", tilesetPath[i]);
-    printf("%s",imgPath);
+    printf("%s\n",imgPath);
     originTextures[i] = loadSDLTexture(imgPath);
-    //tilesetPath 파일 경로 , originTextures Texture 파일
+    //tilesetPath 파일 경로 , Texture* originTextures 파일
+    printf("%d\n",test_count++);
     loadTileset(tilesetPath[i], originTextures[i]);
     success &= (bool)originTextures[i];
   }
@@ -315,9 +315,7 @@ void cleanup() {
 }
 
 void initCommonEffects() {
-#ifdef DBG
-  printf("failed initCommonEffects()");
-#endif
+printf("initCommonEffects()\n");
   // Effect #0: Death
   initEffect(&effects[0], 30, 4, SDL_BLENDMODE_BLEND);
   SDL_Color death = {255, 255, 255, 255};
@@ -357,6 +355,7 @@ void initCommonSprite(Sprite* sprite, Weapon* weapon, int res_id, int hp) {
   #ifdef DBG
   printf("failed initCommonSprite()");
 #endif
+printf("init CommonSprite()\n");
   Animation* ani = createAnimation(&textures[res_id], NULL, LOOP_INFI,
                 SPRITE_ANIMATION_DURATION, 0, 0, SDL_FLIP_NONE, 0,
                 AT_BOTTOM_CENTER);
@@ -385,8 +384,11 @@ void initCommonSprites() {
   initCommonSprite(&commonSprites[SPRITE_CHROT], &weapons[WEAPON_MONSTER_CLAW2], RES_CHORT, 150);
   
   //드루이드
-  
   initCommonSprite(&commonSprites[SPRITE_EXPERT_DRUID],&weapons[WEAPON_PURPLE_BALL],RES_EXPERT_DRUID,100);
+  //BATEYE
+  initCommonSprite(&commonSprites[SPRITE_BATEYE],&weapons[WEAPON_SWORD],RES_BATEYE,75);
+  //firewalker
+  initCommonSprite(&commonSprites[SPRITE_FIREWALKER],&weapons[WEAPON_FIREBALL],RES_FIREWALKER,90);
 
   Sprite* now;
   initCommonSprite(now=&commonSprites[SPRITE_BIG_ZOMBIE], &weapons[WEAPON_THUNDER], RES_BIG_ZOMBIE, 3000);

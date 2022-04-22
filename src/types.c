@@ -22,6 +22,7 @@ void initTexture(Texture* self, SDL_Texture* origin, int width, int height,int f
 #ifdef DBG
   printf("failed initTexture()");
 #endif
+printf("init Texture()\n");
   self->origin = origin;
   self->width = width;
   self->height = height;
