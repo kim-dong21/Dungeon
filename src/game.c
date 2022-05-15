@@ -648,10 +648,12 @@ void invokeWeaponBuff(Snake* src, Weapon* weapon, Snake* dest, int damage) {
 void dealDamage(Snake* src, Snake* dest, Sprite* target, int damage) {
   double calcDamage = damage;
   if (dest->buffs[BUFF_FROZEN]) calcDamage *= GAME_FROZEN_DAMAGE_K;
-  if (src && src != spriteSnake[GAME_MONSTERS_TEAM]) {
+  if (src && src != spriteSnake[GAME_MONSTERS_TEAM]) 
+  {
     if (src->buffs[BUFF_ATTACK]) calcDamage *= GAME_BUFF_ATTACK_K;
   }
-  if (dest != spriteSnake[GAME_MONSTERS_TEAM]) {
+  if (dest != spriteSnake[GAME_MONSTERS_TEAM]) 
+  {
     if (dest->buffs[BUFF_DEFFENCE]) calcDamage /= GAME_BUFF_DEFENSE_K;
   }
   target->hp -= calcDamage;
@@ -712,6 +714,8 @@ bool makeSnakeCross(Snake* snake) {
           }
         }
       }
+
+
   // Death verdict, create death ani
   for (LinkNode* p = snake->sprites->head; p; p = p->nxt) {
     Sprite* sprite = p->element;
@@ -748,6 +752,7 @@ bool makeSnakeCross(Snake* snake) {
       snake->num--;
     }
   }
+
   // Update position
   for (LinkNode *p = snake->sprites->head, *nxt; p; p = nxt) {
     Sprite* sprite = p->element;
@@ -834,6 +839,8 @@ bool makeBulletCross(Bullet* bullet) {
   }
   return hit;
 }
+
+
 void makeCross() {
   for (int i = 0; i < spritesCount; i++) {
     makeSnakeCross(spriteSnake[i]);
@@ -926,9 +933,11 @@ void makeSpriteAttack(Sprite* sprite, Snake* snake) {
         if (distance((Point){sprite->x, sprite->y},
                      (Point){target->x, target->y}) > weapon->shootRange)
           continue;
+
         double rad = atan2(target->y - sprite->y, target->x - sprite->x);
         if (weapon->wp == WEAPON_SWORD_POINT ||
-            weapon->wp == WEAPON_SWORD_RANGE) {
+            weapon->wp == WEAPON_SWORD_RANGE) 
+        {
           Animation* ani = malloc(sizeof(Animation));
           copyAnimation(weapon->deathAni, ani);
           // ani->x = target->x, ani->y = target->y;
@@ -949,6 +958,8 @@ void makeSpriteAttack(Sprite* sprite, Snake* snake) {
         }
       }
     }
+
+
 ATTACK_END:
   if (attacked) {
     if (weapon->birthAni) {
@@ -965,6 +976,7 @@ ATTACK_END:
     sprite->lastAttack = renderFrames;
   }
 }
+
 void makeSnakeAttack(Snake* snake) {
   if (snake->buffs[BUFF_FROZEN]) return;
   for (LinkNode* p = snake->sprites->head; p; p = p->nxt)

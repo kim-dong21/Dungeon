@@ -177,6 +177,8 @@ void clearBindInAnimationsList(Sprite* sprite, int id) {
     }
   }
 }
+
+
 void bindAnimationToSprite(Animation* ani, Sprite* sprite, bool isStrong) {
   ani->bind = sprite;
   ani->dieWithBind = isStrong;

@@ -91,6 +91,7 @@ void initPrimMap(double floorPercent, int smoothTimes) {
   }
   int ltx = n / 4, lty = m / 4;
   int w = n / 2, h = m / 2;
+
   for (int i = ltx; i < ltx + w; i++)
     for (int j = lty; j < lty + h; j++) primMap[i][j] = 1;
   for (int i = 0; i < n; i++) primMap[i][0] = primMap[i][m - 1] = 0;
@@ -161,7 +162,8 @@ void decorateMap() {
 void initBlankMap(int w, int h) {
   clearMapGenerator();
   int si = n/2 - w/2, sj = m/2 - h/2;
-  for (int i = 0; i < w; i++) for (int j = 0; j < h; j++) {
+  for (int i = 0; i < w; i++) 
+    for (int j = 0; j < h; j++) {
     int ii = si + i, jj = sj + j;
     hasMap[ii][jj] = 1;
     initBlock(&map[ii][jj], BLOCK_FLOOR, ii*UNIT, jj*UNIT, RES_FLOOR_1, false);
