@@ -1,5 +1,13 @@
 # Dungeon
-Dungeon game using C , SDL2
+Dungeon game using C , SDL2 library
+
+
+--------------------------------
+UPDATE! 2022.JUNE.30
+FLOW-CHART of source codes
+
+
+
 
 
 --------------------------------
